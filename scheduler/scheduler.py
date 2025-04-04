@@ -8,5 +8,5 @@ class Scheduler:
         self.scheduler = AsyncIOScheduler()
 
     def start_scheduler(self):
-        self.scheduler.add_job(check_new_items, 'interval', minutes=1, kwargs={'bot': self.bot})
+        self.scheduler.add_job(check_new_items, 'interval', minutes=20, kwargs={'bot': self.bot})
         self.scheduler.start()
