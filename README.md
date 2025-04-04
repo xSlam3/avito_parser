@@ -3,8 +3,8 @@
 1. **Клонируйте репозиторий:**
 
    ```bash
-   git clone <URL_вашего_репозитория>
-   cd <имя_вашего_репозитория>
+   git clone https://github.com/xSlam3/avito_parser.git
+   cd avito_parser
    ```
 
 
