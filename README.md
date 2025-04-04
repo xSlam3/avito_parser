@@ -6,7 +6,7 @@
    git clone https://github.com/xSlam3/avito_parser.git
    cd avito_parser
    ```
-
+
 
 2. **Подготовьте файл `.env`:**
 
@@ -16,7 +16,7 @@
    BOT_TOKEN=
    ALLOWED_ID=
    ```
-
+
 
    *Эти данные используются для настройки вашего приложения.*
 
