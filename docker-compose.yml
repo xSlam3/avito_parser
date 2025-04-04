@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./.env:/app/.env
+    command: python main.py
