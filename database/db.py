@@ -6,7 +6,7 @@ from database.models import Base
 
 class AvitoDatabase():
     def __init__(self):
-        self.db_url = "sqlite+aiosqlite:///./test.db"
+        self.db_url = "sqlite+aiosqlite:///./items.db"
         self.engine: AsyncEngine = create_async_engine(self.db_url, echo=True)
         self.session_maker = async_sessionmaker(bind=self.engine, expire_on_commit=False)
 
