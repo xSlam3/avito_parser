@@ -9,7 +9,28 @@ from database.db import AvitoDatabase
 from scheduler.scheduler import Scheduler
 
 
-async def start_bot():
+class TgBot():
+    def __init__(self, bot_token: str, allowed_id):
+        self.bot_token = bot_token
+        self.allowed_id = allowed_id
+
+    async def start_bot(self):
+        bot = Bot(token=self.bot_token,
+                  default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+        dp = Dispatcher()
+
+        scheduler = Scheduler(bot)
+        scheduler.start_scheduler()
+
+        dp.include_router(commands.router)
+        dp.message.filter(IsAllowedUser(self.allowed_id))
+        dp.callback_query.filter(IsAllowedUser(self.allowed_id))
+
+        await bot.delete_webhook(drop_pending_updates=True)
+
+        await dp.start_polling(bot)
+
+"""async def start_bot():
     config: Config = await load_config()
 
     bot = Bot(token=config.bot.token,
@@ -29,4 +50,4 @@ async def start_bot():
     await bot.delete_webhook(drop_pending_updates=True)
 
 
-    await dp.start_polling(bot)
+    await dp.start_polling(bot)"""
